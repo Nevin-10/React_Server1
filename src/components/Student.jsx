@@ -22,7 +22,7 @@ const Student = () => {
     const {id} = e.target
   
     
-    axios.delete(`http://localhost:8080/delete/${id}`) //Instead of postman, after testing using urls use axios, for fetching url
+    axios.delete(`http://localhost:8080/delete/${id}`) 
     .then((response)=>{
         console.log(response)
         window.location.reload()
