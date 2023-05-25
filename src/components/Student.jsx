@@ -8,7 +8,7 @@ const Student = () => {
     var [students,setStudents] = useState([])
    useEffect(() =>{
 
-        axios.get("http://localhost:8080/see") //Database location
+        axios.get("http://localhost:8080/see")
         .then((response) =>{
             setStudents(response.data);
             console.log(response.data);
