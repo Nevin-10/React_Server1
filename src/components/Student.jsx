@@ -1,8 +1,8 @@
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TableSortLabel } from '@mui/material'
-import axios from 'axios'
+import { Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TableSortLabel } from '@mui/material'
+import axios, { Axios } from 'axios'
 import React, { useEffect, useState } from 'react'
 
-const Student = ({value}) => {
+const Student = () => {
 
 
     var [students,setStudents] = useState([])
@@ -17,6 +17,19 @@ const Student = ({value}) => {
         .catch()
     
   },[])
+
+  const theChange = (e) =>{
+    const {id} = e.target
+  
+    
+    axios.delete(`http://localhost:8080/delete/${id}`) //Instead of postman, after testing using urls use axios, for fetching url
+    .then((response)=>{
+        console.log(response)
+        window.location.reload()
+    })
+    .catch()
+
+  }
 
 
 
@@ -48,6 +61,9 @@ const Student = ({value}) => {
 
                                 <TableCell>{val.sname}</TableCell>
                                 <TableCell>{val.sgrade}</TableCell>
+                                {console.log(val._id)}
+                                <TableCell><Button id={val._id} onClick={theChange}>Delete</Button></TableCell>
+                                <TableCell><Button>Update</Button></TableCell>
                             
                             
                             </TableRow>
