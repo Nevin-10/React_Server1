@@ -107,7 +107,7 @@ var finalJSX =  <div>
 
 
 if(update){ 
-    finalJSX = <Add  data = {singleValue} method = 'put' /> //Calling Add component, pass data and method
+    finalJSX = <Add  data = {singleValue} method = 'put' /> //Calling Add component, pass data and method singleValue 
     
 }
   return (
